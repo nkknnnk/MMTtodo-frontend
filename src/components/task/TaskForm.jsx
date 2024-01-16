@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const TaskForm = ({ fetchTodosData, todoId }) => {
+  const navigate = useNavigate()
   const [taskInput, setTaskInput] = useState("");
   const auth = useContext(AuthContext);
 
@@ -23,6 +25,8 @@ const TaskForm = ({ fetchTodosData, todoId }) => {
       })
       .catch((res) => {
         alert(res.response.data.message);
+        auth.logout()
+        navigate("/")
       });
   };
 
