@@ -42,7 +42,7 @@ const ToDoList = ({ todos, setTodos, fetchTodosData }) => {
     const fetchData = async (sort) => {
       try {
         // const url = `${process.env.REACT_APP_API_ROOT_URL}bank/format`;
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/getToDos/sort/${sort}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}getToDos/sort/${sort}`, {
           method: "GET",
           headers: { Authorization: `Bearer ${auth.token}` },
         });

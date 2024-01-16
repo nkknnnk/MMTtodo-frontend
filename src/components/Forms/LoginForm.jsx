@@ -30,7 +30,7 @@ const LoginForm = () => {
     };
 
     await axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, data)
+      .post(`${process.env.REACT_APP_BACKEND_URL}user/login`, data)
       .then((res) => {
         console.log(res, "login response");
         auth.login(res.data.token, res.data.userId, res.data.name);
