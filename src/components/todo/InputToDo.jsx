@@ -21,7 +21,7 @@ const InputToDo = ({ setShowToDoForm, setTodos }) => {
   const fetchTodosData = async () => {
     // fetching todos API call
     try {
-      const res = await axios.get("/getToDos", {
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}getToDos`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       setTodos(res.data.userWithTodos.todos.reverse());
@@ -39,7 +39,7 @@ const InputToDo = ({ setShowToDoForm, setTodos }) => {
     // create ToDo API call
 
     await axios
-      .post("/createToDo", data, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}createToDo`, data, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then(() => {

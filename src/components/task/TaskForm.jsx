@@ -13,7 +13,7 @@ const TaskForm = ({ fetchTodosData, todoId }) => {
       description: taskInput,
     };
     await axios
-      .post(`/${todoId}/createToDoTask`, data, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}${todoId}/createToDoTask`, data, {
         headers: { Authorization: `Bearer ${auth.token}` },
       })
       .then(() => {

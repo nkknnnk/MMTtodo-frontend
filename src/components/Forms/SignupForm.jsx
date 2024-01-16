@@ -32,7 +32,7 @@ function SignupForm() {
     };
     console.log(data);
     axios
-      .post("/user/signup", data)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/signup`, data)
       .then((res) => {
         alert("User Created Successfully");
         navigate("/");

@@ -29,7 +29,7 @@ const ToDoListItem = ({
 
     // delete todo api call
     if (window.confirm(text)) {
-      await axios.delete(`/deleteTodo/${_id}`, {
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}deleteTodo/${_id}`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       const newTodos = todos.filter((todo) => {
@@ -58,7 +58,7 @@ const ToDoListItem = ({
 
     // update to do API call
 
-    await axios.put(`/updateToDo/${_id}`, data, {
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}updateToDo/${_id}`, data, {
       headers: { Authorization: `Bearer ${auth.token}` },
     });
     setEditMode(false);

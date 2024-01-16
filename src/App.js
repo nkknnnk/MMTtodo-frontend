@@ -29,7 +29,7 @@ function App() {
     // fetching todos API call
 
     try {
-      const res = await axios.get("/getToDos", {
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}getToDos`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("main res", res)

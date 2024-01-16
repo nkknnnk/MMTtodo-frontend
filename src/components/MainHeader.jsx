@@ -10,7 +10,7 @@ const MainHeader = ({ getSearchInput }) => {
   const logoutHandler = async (log) => {
     if (log === 1) {
       try {
-        const response = await fetch(`/user/logout`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/logout`, {
           method: "POST",
           body: JSON.stringify({ userId: auth.userId }),
           headers: {

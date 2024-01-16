@@ -18,7 +18,7 @@ const Card = ({ task, todoId, setTodoState, todoState, fetchTodosData }) => {
   const handleDelete = async () => {
     const text = "Do You Really Want To Delete?";
     if (window.confirm(text)) {
-      await axios.delete(`/${todoId}/deleteTask/${task._id}`, {
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}${todoId}/deleteTask/${task._id}`, {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       const newTodoState = todoState.tasks.filter((item) => {
@@ -35,7 +35,7 @@ const Card = ({ task, todoId, setTodoState, todoState, fetchTodosData }) => {
       description: newTaskDescription,
     };
 
-    await axios.put(`/${todoId}/${task._id}`, data, {
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}${todoId}/${task._id}`, data, {
       headers: { Authorization: `Bearer ${auth.token}` },
     });
 
